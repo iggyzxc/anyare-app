@@ -1,5 +1,6 @@
-package com.iggyzxc.anyareappbackend.entity.user;
+package com.iggyzxc.anyareappbackend.repository;
 
+import com.iggyzxc.anyareappbackend.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
