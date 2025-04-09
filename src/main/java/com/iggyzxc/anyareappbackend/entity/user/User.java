@@ -19,14 +19,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // JPA: Configures auto-increment for the ID
     private Long id;
 
+    private String firstName;
+    private String lastName;
+
     @Column(unique = true, nullable = false) // JPA: Column constraints
     private String email;
 
     @Column(nullable = false)
     private String passwordHash; // Store hashed passwords, not plain text!
 
-    private String firstName;
-    private String lastName;
+    private String phoneNumber;
+
+    @Lob // JPA: Suggests mapping to a large object type (TEXT in MySQL)
+    @Column(columnDefinition = "TEXT")
+    private String addressDetails;
 
     @Enumerated(EnumType.STRING) // JPA: Stores the enum value as a String (e.g., "RESIDENT")
     @Column(nullable = false)
@@ -40,12 +46,6 @@ public class User {
     private Long approvedByUserId;
 
     private LocalDateTime approvedAt;
-
-    private String phoneNumber;
-
-    @Lob // JPA: Suggests mapping to a large object type (TEXT in MySQL)
-    @Column(columnDefinition = "TEXT")
-    private String addressDetails;
 
     private String profilePictureUrl;
 
